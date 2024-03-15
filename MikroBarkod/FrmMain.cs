@@ -20,10 +20,6 @@ namespace MikroBarkod
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
-        //private SqlDataAdapter dataAdapter;
-        //private DataTable dataTable;
-        
-
 
         public FrmMain()
         {
@@ -40,7 +36,7 @@ namespace MikroBarkod
         {
             comboboxDoldur();
             this.KeyPreview = true;
-           
+
         }
 
         void comboboxDoldur()
@@ -81,8 +77,8 @@ namespace MikroBarkod
 
             gridView1.Columns["MİKTAR"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["MİKTAR"].DisplayFormat.FormatString = "N0";
-            gridView1.Columns["KOLİ İÇİ ADET"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["KOLİ İÇİ ADET"].DisplayFormat.FormatString = "N0";
+           
+   
             gridView1.Columns["KALAN MİKTAR"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["KALAN MİKTAR"].DisplayFormat.FormatString = "N0";
 
@@ -92,18 +88,54 @@ namespace MikroBarkod
                 column.AppearanceHeader.BackColor = System.Drawing.Color.AliceBlue; // Tüm kolon başlıklarının arka plan rengini ayarla
             }
             //gridView.Appearance.GroupRow.BackColor = System.Drawing.Color.AliceBlue;
-            GridColumn koliColumn = gridView1.Columns["KOLİ İÇİ ADET"];
-            koliColumn.AppearanceCell.BackColor = Color.LightYellow;
+            //GridColumn koliColumn = gridView1.Columns["KOLİ İÇİ ADET"];
+            //koliColumn.AppearanceCell.BackColor = Color.LightYellow;
             //gridView.Columns["EVRAK SERİ"].GroupIndex = 0;
             //gridView.Columns["EVRAK SIRA"].GroupIndex = 0;
+
+            gridView1.Columns["MİKTAR"].AppearanceCell.BackColor = Color.LightBlue;
             gridView.ExpandAllGroups();
-            koliColumn.OptionsColumn.ReadOnly = false;
+            
+        }
+
+
+        void gridAyarlariview2()
+        {
+            gridView2.BestFitColumns();
+            //gridView1.Columns["SERİ"].Width = 50;
+            gridView2.Columns["SIRA"].Width = 70;
+            gridView2.Columns["BARKODU"].Width = 100;
+            gridView2.Columns["CARİ İSMİ"].Width = 140;
+            gridView2.Columns["A/K"].Width = 30;
+
+            gridView2.Columns["MİKTAR"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns["MİKTAR"].DisplayFormat.FormatString = "N0";
+
+
+            gridView2.Columns["KALAN MİKTAR"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns["KALAN MİKTAR"].DisplayFormat.FormatString = "N0";
+
+            GridView gridView = gridView2;
+            foreach (GridColumn column in gridView.Columns)
+            {
+                column.AppearanceHeader.BackColor = System.Drawing.Color.AliceBlue; // Tüm kolon başlıklarının arka plan rengini ayarla
+            }
+            //gridView.Appearance.GroupRow.BackColor = System.Drawing.Color.AliceBlue;
+            //GridColumn koliColumn = gridView1.Columns["KOLİ İÇİ ADET"];
+            //koliColumn.AppearanceCell.BackColor = Color.LightYellow;
+            //gridView.Columns["EVRAK SERİ"].GroupIndex = 0;
+            //gridView.Columns["EVRAK SIRA"].GroupIndex = 0;
+
+            gridView2.Columns["MİKTAR"].AppearanceCell.BackColor = Color.LightBlue;
+            gridView.ExpandAllGroups();
+
         }
 
         private void btnCalistir_Click(object sender, EventArgs e)
         {
             ShowWaitForm();
             gridYukle();
+            gridYukleView2();
             CloseWaitForm();
 
         }
@@ -150,6 +182,38 @@ namespace MikroBarkod
 
 
         }
+
+        void gridYukleView2()
+        {
+            SqlBaglanti bgl = new SqlBaglanti();
+
+            string dizin = AppDomain.CurrentDomain.BaseDirectory;
+
+            string dosyaYolu = Path.Combine(dizin, "commandView2.txt");
+
+            string sqlSorgusu = File.ReadAllText(dosyaYolu);
+
+
+            using (SqlCommand comand = new SqlCommand(sqlSorgusu, bgl.baglan()))
+            {
+                comand.Parameters.AddWithValue("@param1", comboBoxYears.Text);
+                // SqlDataAdapter ve DataTable oluşturun
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(comand);
+                DataTable dataTable = new DataTable();
+
+                // DataTable'ı doldurun
+                dataAdapter.Fill(dataTable);
+
+                // DataTable'ı eğer UI thread'inden ulaşılmak üzere iş parçacığına post et
+                Invoke(new MethodInvoker(delegate
+                {
+                    gridControl2.DataSource = dataTable;
+                }));
+            }
+            gridAyarlariview2();
+
+
+        }
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
@@ -164,65 +228,77 @@ namespace MikroBarkod
 
         private void seciliSatiriYazdirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            // Sağ tıklama menüsü sadece bir satır seçildiğinde görüntülensin
-            int rowHandle = gridView1.FocusedRowHandle;
-            if (rowHandle >= 0)
-            {
-                // Seçili satırı al
-                int selectedRowHandle = gridView1.FocusedRowHandle;
-
-                //// Seçili satırın verilerini al
-                //int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRowHandle, "ID"));
-                //string name = gridView1.GetRowCellValue(selectedRowHandle, "Name").ToString();
-                string cariAdi = gridView1.GetRowCellValue(selectedRowHandle, "CARİ İSMİ").ToString();
-                string stokAdi = gridView1.GetRowCellValue(selectedRowHandle, "STOK İSMİ").ToString();
-                string barkodu = gridView1.GetRowCellValue(selectedRowHandle, "BARKODU").ToString();
-                int miktar2 = Convert.ToInt32(gridView1.GetRowCellValue(selectedRowHandle, "KOLİ İÇİ ADET"));
-
-
-                FrmTarihSecim frmTarihSecim = new FrmTarihSecim(cariAdi, stokAdi, miktar2, barkodu);
-                DialogResult result = frmTarihSecim.ShowDialog();
-
-                // MessageBox ile verileri göster
-                //DialogResult result = MessageBox.Show("Seçili satır barkod dökümü yapılsın mı", "Başlık", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-
-                }
-            }
+            Code39EtiketBas();
 
         }
 
-        private void btnYazdir_Click(object sender, EventArgs e)
+
+        public static int CalculateCheckDigit(string barcodeWithoutCheckDigit)
         {
-            // Sağ tıklama menüsü sadece bir satır seçildiğinde görüntülensin
+            int sumEven = 0;
+            int sumOdd = 0;
+
+            for (int i = 0; i < barcodeWithoutCheckDigit.Length; i++)
+            {
+                // Karakterin sayı olup olmadığını kontrol et
+                if (char.IsDigit(barcodeWithoutCheckDigit[i]))
+                {
+                    int digit = int.Parse(barcodeWithoutCheckDigit[i].ToString());
+
+                    if ((i + 1) % 2 == 0)
+                    {
+                        sumEven += digit;
+                    }
+                    else
+                    {
+                        sumOdd += digit;
+                    }
+                }
+            }
+
+            // Çift basamakların iki katını al ve topla
+            int total = (sumOdd * 3) + sumEven;
+
+            // Kontrol basamağını hesapla
+            int checkDigit = 10 - (total % 10);
+            if (checkDigit == 10)
+            {
+                checkDigit = 0;
+            }
+
+            return checkDigit;
+        }
+
+        
+
+        void Code39EtiketBas()
+        {
             int rowHandle = gridView1.FocusedRowHandle;
             if (rowHandle >= 0)
             {
-                // Seçili satırı al
+
                 int selectedRowHandle = gridView1.FocusedRowHandle;
 
-                //// Seçili satırın verilerini al
-                //int id = Convert.ToInt32(gridView1.GetRowCellValue(selectedRowHandle, "ID"));
-                //string name = gridView1.GetRowCellValue(selectedRowHandle, "Name").ToString();
+
                 string cariAdi = gridView1.GetRowCellValue(selectedRowHandle, "CARİ İSMİ").ToString();
                 string stokAdi = gridView1.GetRowCellValue(selectedRowHandle, "STOK İSMİ").ToString();
-                string barkodu = gridView1.GetRowCellValue(selectedRowHandle, "BARKODU").ToString();
-                int miktar2 = Convert.ToInt32(gridView1.GetRowCellValue(selectedRowHandle, "KOLİ İÇİ ADET"));
+                string gridBarkodu = gridView1.GetRowCellValue(selectedRowHandle, "BARKODU").ToString();
+                decimal gridMiktar = Convert.ToInt32(gridView1.GetRowCellValue(selectedRowHandle, "MİKTAR"));
 
+                string barcodeValue = gridBarkodu;
 
-                FrmTarihSecim frmTarihSecim = new FrmTarihSecim(cariAdi, stokAdi, miktar2, barkodu);
+                FrmTarihSecim frmTarihSecim = new FrmTarihSecim(cariAdi, stokAdi, (int)gridMiktar, barcodeValue);
                 DialogResult result = frmTarihSecim.ShowDialog();
-
-                // MessageBox ile verileri göster
-                //DialogResult result = MessageBox.Show("Seçili satır barkod dökümü yapılsın mı", "Başlık", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
 
                 }
             }
-
+        }
+        private void btnYazdir_Click(object sender, EventArgs e)
+        {
+            Code39EtiketBas();
+           
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -237,16 +313,15 @@ namespace MikroBarkod
                 e.Appearance.BackColor = System.Drawing.Color.LightGreen; // Yeşil renk
                 //e.Appearance.ForeColor = System.Drawing.Color.White; // Beyaz renkte metin örneği
             }
+            if (e.Column.FieldName == "KALAN MİKTAR" && e.CellValue != null && Convert.ToDouble(e.CellValue) > 0)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.Red;
+            }
         }
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            //if (e.Column != null)
-            //{
-            //    e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            //    e.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
 
-            //}
 
         }
 
@@ -258,7 +333,7 @@ namespace MikroBarkod
 
         private void yeniEtiketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmYeniEtiket frmYeniEtiket = new FrmYeniEtiket();  
+            FrmYeniEtiket frmYeniEtiket = new FrmYeniEtiket();
             frmYeniEtiket.ShowDialog();
         }
 
@@ -276,6 +351,21 @@ namespace MikroBarkod
             FrmYeniEtiket frmYeniEtiket = new FrmYeniEtiket();
             frmYeniEtiket.ShowDialog();
 
+        }
+
+        private void gridView2_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            
+            if (e.Column.FieldName == "TAMAMLANAN MİKTAR" && e.CellValue != null && Convert.ToDouble(e.CellValue) > 0)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.LightGreen; // Yeşil renk
+                //e.Appearance.ForeColor = System.Drawing.Color.White; // Beyaz renkte metin örneği
+            }
+
+            if (e.Column.FieldName == "KALAN MİKTAR" && e.CellValue != null && Convert.ToDouble(e.CellValue) > 0)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.Red;
+            }
         }
     }
 }

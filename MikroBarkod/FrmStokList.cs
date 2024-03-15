@@ -32,7 +32,7 @@ namespace MikroBarkod
 
         void loadData()
         {
-            string query = "SELECT sto_kod,sto_isim,bar_kodu from STOKLAR LEFT OUTER JOIN BARKOD_TANIMLARI BT ON BT.bar_stokkodu=sto_kod";
+            string query = "SELECT sto_kod,sto_isim,bar_kodu from STOKLAR LEFT OUTER JOIN BARKOD_TANIMLARI BT ON BT.bar_stokkodu=sto_kod where BT.bar_kodu IS NOT NULL";
 
 
             try

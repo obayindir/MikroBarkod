@@ -39,6 +39,8 @@
             this.dateSKT = new DevExpress.XtraEditors.DateEdit();
             this.dateUretimTarihi = new DevExpress.XtraEditors.DateEdit();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
+            this.spnAdet = new DevExpress.XtraEditors.SpinEdit();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnStokKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarkod.Properties)).BeginInit();
@@ -46,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateSKT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateUretimTarihi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateUretimTarihi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnAdet.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStokKodu
@@ -148,19 +151,45 @@
             // 
             // btnYazdir
             // 
-            this.btnYazdir.Location = new System.Drawing.Point(388, 274);
+            this.btnYazdir.Location = new System.Drawing.Point(361, 266);
             this.btnYazdir.Name = "btnYazdir";
-            this.btnYazdir.Size = new System.Drawing.Size(112, 34);
+            this.btnYazdir.Size = new System.Drawing.Size(139, 56);
             this.btnYazdir.TabIndex = 6;
             this.btnYazdir.Text = "YAZDIR";
             this.btnYazdir.Click += new System.EventHandler(this.btnYazdir_Click);
+            // 
+            // spnAdet
+            // 
+            this.spnAdet.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spnAdet.Location = new System.Drawing.Point(186, 270);
+            this.spnAdet.Name = "spnAdet";
+            this.spnAdet.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spnAdet.Size = new System.Drawing.Size(150, 28);
+            this.spnAdet.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(48, 274);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "MİKTAR";
             // 
             // FrmYeniEtiket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 334);
+            this.Controls.Add(this.spnAdet);
             this.Controls.Add(this.btnYazdir);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateSKT);
@@ -184,6 +213,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateSKT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateUretimTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateUretimTarihi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnAdet.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +232,7 @@
         private DevExpress.XtraEditors.DateEdit dateSKT;
         private DevExpress.XtraEditors.DateEdit dateUretimTarihi;
         private DevExpress.XtraEditors.SimpleButton btnYazdir;
+        private DevExpress.XtraEditors.SpinEdit spnAdet;
+        private System.Windows.Forms.Label label6;
     }
 }

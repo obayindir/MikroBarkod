@@ -1,6 +1,6 @@
-﻿namespace MikroBarkod
+﻿namespace MikroBarkod.code39
 {
-    partial class RprBarkodDizayn
+    partial class Code39Barcode
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraPrinting.BarCode.EAN13Generator eaN13Generator1 = new DevExpress.XtraPrinting.BarCode.EAN13Generator();
+            DevExpress.XtraPrinting.BarCode.Code39ExtendedGenerator code39ExtendedGenerator1 = new DevExpress.XtraPrinting.BarCode.Code39ExtendedGenerator();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -58,6 +58,7 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrBarCode1,
             this.xrSkt,
             this.xrUrTarihi,
             this.xrUrun,
@@ -67,8 +68,7 @@
             this.xrLabel4,
             this.xrLabel3,
             this.xrLabel2,
-            this.xrLabel1,
-            this.xrBarCode1});
+            this.xrLabel1});
             this.Detail.HeightF = 444.9652F;
             this.Detail.Name = "Detail";
             // 
@@ -110,7 +110,6 @@
             // 
             // xrKoliIciAdet
             // 
-            this.xrKoliIciAdet.EditOptions.Enabled = true;
             this.xrKoliIciAdet.Font = new DevExpress.Drawing.DXFont("Arial", 14F);
             this.xrKoliIciAdet.LocationFloat = new DevExpress.Utils.PointFloat(289.5833F, 75.24537F);
             this.xrKoliIciAdet.Name = "xrKoliIciAdet";
@@ -190,22 +189,24 @@
             // 
             // xrBarCode1
             // 
-            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(148.2061F, 219.0278F);
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(5.999926F, 261.8055F);
+            this.xrBarCode1.Module = 1.75F;
             this.xrBarCode1.Name = "xrBarCode1";
-            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xrBarCode1.SizeF = new System.Drawing.SizeF(316.4931F, 117.4884F);
-            this.xrBarCode1.Symbology = eaN13Generator1;
+            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 96F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(574.0002F, 75F);
+            code39ExtendedGenerator1.WideNarrowRatio = 3F;
+            this.xrBarCode1.Symbology = code39ExtendedGenerator1;
             // 
-            // RprBarkodDizayn
+            // Code39Barcode
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.TopMargin,
             this.BottomMargin,
             this.Detail});
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(0F, 0F, 0F, 0F);
+            this.Margins = new DevExpress.Drawing.DXMargins(0F, 1F, 0F, 0F);
             this.PageHeight = 393;
-            this.PageWidth = 590;
+            this.PageWidth = 622;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -220,7 +221,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.XRBarCode xrBarCode1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrSkt;
@@ -228,5 +228,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrUrun;
         private DevExpress.XtraReports.UI.XRLabel xrKoliIciAdet;
         private DevExpress.XtraReports.UI.XRLabel xrUrunAdi;
+        private DevExpress.XtraReports.UI.XRBarCode xrBarCode1;
     }
 }
