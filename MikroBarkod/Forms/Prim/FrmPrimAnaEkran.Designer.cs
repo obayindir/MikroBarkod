@@ -33,11 +33,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrimAnaEkran));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrimAnaEkran));
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -47,18 +47,18 @@
             this.dateSonTarih = new DevExpress.XtraEditors.DateEdit();
             this.dateIlkTarih = new DevExpress.XtraEditors.DateEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGoruntuAyarlariniKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCollapseAll = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExpandAll = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOdemeIptal = new DevExpress.XtraEditors.SimpleButton();
             this.btnOdemeYap = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelTotalAmount = new System.Windows.Forms.Label();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
-            this.btnCollapseAll = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExpandAll = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGoruntuAyarlariniKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnTemsilciSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTemsilciAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateSonTarih.Properties)).BeginInit();
@@ -186,42 +186,57 @@
             this.groupControl1.TabIndex = 18;
             this.groupControl1.Text = "groupControl1";
             // 
-            // gridControl1
+            // simpleButton2
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gridControl1.Location = new System.Drawing.Point(0, 177);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1766, 927);
-            this.gridControl1.TabIndex = 19;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(577, 18);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(172, 75);
+            this.simpleButton2.TabIndex = 113;
+            this.simpleButton2.Text = "Çalıştır";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // gridView1
+            // btnGoruntuAyarlariniKaydet
             // 
-            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridView1.Appearance.GroupRow.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.GroupRow.Options.UseBorderColor = true;
-            this.gridView1.DetailHeight = 538;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsBehavior.ReadOnly = true;
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways;
-            this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
-            this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);
-            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
-            this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
+            this.btnGoruntuAyarlariniKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoruntuAyarlariniKaydet.Location = new System.Drawing.Point(898, 128);
+            this.btnGoruntuAyarlariniKaydet.Name = "btnGoruntuAyarlariniKaydet";
+            this.btnGoruntuAyarlariniKaydet.Size = new System.Drawing.Size(138, 29);
+            this.btnGoruntuAyarlariniKaydet.TabIndex = 112;
+            this.btnGoruntuAyarlariniKaydet.Text = "Görünümü Sakla";
+            this.btnGoruntuAyarlariniKaydet.Click += new System.EventHandler(this.btnGoruntuAyarlariniKaydet_Click);
+            // 
+            // btnCollapseAll
+            // 
+            this.btnCollapseAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCollapseAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCollapseAll.ImageOptions.Image")));
+            this.btnCollapseAll.Location = new System.Drawing.Point(42, 156);
+            this.btnCollapseAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCollapseAll.Name = "btnCollapseAll";
+            this.btnCollapseAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnCollapseAll.Size = new System.Drawing.Size(33, 20);
+            toolTipItem1.Text = "Gruplamayı kapatmak için tıklayınız";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnCollapseAll.SuperTip = superToolTip1;
+            this.btnCollapseAll.TabIndex = 111;
+            this.btnCollapseAll.Click += new System.EventHandler(this.btnCollapseAll_Click);
+            // 
+            // btnExpandAll
+            // 
+            this.btnExpandAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExpandAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExpandAll.ImageOptions.Image")));
+            this.btnExpandAll.Location = new System.Drawing.Point(6, 155);
+            this.btnExpandAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExpandAll.Name = "btnExpandAll";
+            this.btnExpandAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnExpandAll.Size = new System.Drawing.Size(28, 22);
+            toolTipItem2.Text = "Gruplamayı Açmak İçin Tıklayınız";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnExpandAll.SuperTip = superToolTip2;
+            this.btnExpandAll.TabIndex = 110;
+            this.btnExpandAll.Click += new System.EventHandler(this.btnExpandAll_Click);
             // 
             // simpleButton1
             // 
@@ -278,6 +293,43 @@
             this.btnOdemeYap.Text = "ÖDEME İŞLEMİ";
             this.btnOdemeYap.Click += new System.EventHandler(this.btnOdemeYap_Click);
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gridControl1.Location = new System.Drawing.Point(0, 177);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1766, 927);
+            this.gridControl1.TabIndex = 19;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gridView1.Appearance.GroupRow.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.gridView1.DetailHeight = 538;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
+            this.gridView1.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.gridView1_CustomDrawGroupRow);
+            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
+            this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
+            // 
             // labelTotalAmount
             // 
             this.labelTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -303,58 +355,6 @@
             this.toggleSwitch1.Size = new System.Drawing.Size(82, 27);
             this.toggleSwitch1.TabIndex = 103;
             this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled);
-            // 
-            // btnCollapseAll
-            // 
-            this.btnCollapseAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCollapseAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCollapseAll.ImageOptions.Image")));
-            this.btnCollapseAll.Location = new System.Drawing.Point(42, 156);
-            this.btnCollapseAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCollapseAll.Name = "btnCollapseAll";
-            this.btnCollapseAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnCollapseAll.Size = new System.Drawing.Size(33, 20);
-            toolTipItem1.Text = "Gruplamayı kapatmak için tıklayınız";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnCollapseAll.SuperTip = superToolTip1;
-            this.btnCollapseAll.TabIndex = 111;
-            this.btnCollapseAll.Click += new System.EventHandler(this.btnCollapseAll_Click);
-            // 
-            // btnExpandAll
-            // 
-            this.btnExpandAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExpandAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExpandAll.ImageOptions.Image")));
-            this.btnExpandAll.Location = new System.Drawing.Point(6, 155);
-            this.btnExpandAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnExpandAll.Name = "btnExpandAll";
-            this.btnExpandAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnExpandAll.Size = new System.Drawing.Size(28, 22);
-            toolTipItem2.Text = "Gruplamayı Açmak İçin Tıklayınız";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnExpandAll.SuperTip = superToolTip2;
-            this.btnExpandAll.TabIndex = 110;
-            this.btnExpandAll.Click += new System.EventHandler(this.btnExpandAll_Click);
-            // 
-            // btnGoruntuAyarlariniKaydet
-            // 
-            this.btnGoruntuAyarlariniKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGoruntuAyarlariniKaydet.Location = new System.Drawing.Point(889, 138);
-            this.btnGoruntuAyarlariniKaydet.Name = "btnGoruntuAyarlariniKaydet";
-            this.btnGoruntuAyarlariniKaydet.Size = new System.Drawing.Size(138, 29);
-            this.btnGoruntuAyarlariniKaydet.TabIndex = 112;
-            this.btnGoruntuAyarlariniKaydet.Text = "Görünümü Sakla";
-            this.btnGoruntuAyarlariniKaydet.Click += new System.EventHandler(this.btnGoruntuAyarlariniKaydet_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(577, 18);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(172, 75);
-            this.simpleButton2.TabIndex = 113;
-            this.simpleButton2.Text = "Çalıştır";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // FrmPrimAnaEkran
             // 
