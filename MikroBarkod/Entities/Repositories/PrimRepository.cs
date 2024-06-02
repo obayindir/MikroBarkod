@@ -67,5 +67,20 @@ namespace MikroBarkod.Entities.Repositories
             });
         }
 
+        public List<CariPersonelTanımlari> GetCariPersoneller()
+        {
+            using (IDbConnection dbConnection = new SqlConnection(connectionString))
+            {
+                string query = "Select cari_per_kod,cari_per_adi FROM CARI_PERSONEL_TANIMLARI ";
+                return dbConnection.Query<CariPersonelTanımlari>(query).ToList();
+            }
+        }
+
+    }
+
+    public class CariPersonelTanımlari
+    {
+        public string cari_per_kod { get; set; }
+        public string cari_per_adi { get; set; }
     }
 }

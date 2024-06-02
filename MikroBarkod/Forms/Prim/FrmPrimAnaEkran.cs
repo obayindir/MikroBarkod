@@ -28,6 +28,11 @@ namespace MikroBarkod.Forms.Prim
         public FrmPrimAnaEkran()
         {
             InitializeComponent();
+            
+            lookupPlasiyer.Properties.DataSource = primRepository.GetCariPersoneller();
+            lookupPlasiyer.Properties.DisplayMember = "cari_per_adi";
+            lookupPlasiyer.Properties.ValueMember = "cari_per_kod";
+            
         }
         void loadGrids()
         {
@@ -51,7 +56,7 @@ namespace MikroBarkod.Forms.Prim
         {
             try
             {
-                gridControl1.DataSource = primRepository.GetPrimReportAsync(btnTemsilciSec.Text, dateIlkTarih.DateTime, dateSonTarih.DateTime);
+                gridControl1.DataSource = primRepository.GetPrimReportAsync(lookupPlasiyer.EditValue.ToString(), dateIlkTarih.DateTime, dateSonTarih.DateTime);
 
                 gridView1.Columns["Temsilci_Kodu"].Caption = "Plasiyer";
                 gridView1.Columns["Temsilci_Adi"].Visible = true;
