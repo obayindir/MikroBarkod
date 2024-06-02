@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrimAnaEkran));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -122,7 +122,7 @@
             this.btnTemsilciSec.Location = new System.Drawing.Point(180, 10);
             this.btnTemsilciSec.Name = "btnTemsilciSec";
             this.btnTemsilciSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F10), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F10), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnTemsilciSec.Size = new System.Drawing.Size(345, 26);
             this.btnTemsilciSec.TabIndex = 10;
             // 
@@ -217,9 +217,9 @@
             this.btnCollapseAll.Name = "btnCollapseAll";
             this.btnCollapseAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnCollapseAll.Size = new System.Drawing.Size(33, 20);
-            toolTipItem1.Text = "Gruplamayı kapatmak için tıklayınız";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnCollapseAll.SuperTip = superToolTip1;
+            toolTipItem3.Text = "Gruplamayı kapatmak için tıklayınız";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnCollapseAll.SuperTip = superToolTip3;
             this.btnCollapseAll.TabIndex = 111;
             this.btnCollapseAll.Click += new System.EventHandler(this.btnCollapseAll_Click);
             // 
@@ -232,9 +232,9 @@
             this.btnExpandAll.Name = "btnExpandAll";
             this.btnExpandAll.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnExpandAll.Size = new System.Drawing.Size(28, 22);
-            toolTipItem2.Text = "Gruplamayı Açmak İçin Tıklayınız";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnExpandAll.SuperTip = superToolTip2;
+            toolTipItem4.Text = "Gruplamayı Açmak İçin Tıklayınız";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnExpandAll.SuperTip = superToolTip4;
             this.btnExpandAll.TabIndex = 110;
             this.btnExpandAll.Click += new System.EventHandler(this.btnExpandAll_Click);
             // 
