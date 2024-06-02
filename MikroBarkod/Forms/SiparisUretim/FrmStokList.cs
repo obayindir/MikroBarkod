@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpo.DB;
 using DevExpress.XtraEditors;
+using MikroBarkod.Entities.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,8 @@ namespace MikroBarkod
 {
     public partial class FrmStokList : DevExpress.XtraEditors.XtraForm
     {
-        SqlBaglanti bgl = new SqlBaglanti();
+        StokRepository stokRepository = new StokRepository();
+        
         public SelectedDataModel SelectedData { get; private set; }
         public FrmStokList()
         {
@@ -30,33 +32,33 @@ namespace MikroBarkod
 
         }
 
-        void loadData()
-        {
-            string query = "SELECT sto_kod,sto_isim,bar_kodu from STOKLAR LEFT OUTER JOIN BARKOD_TANIMLARI BT ON BT.bar_stokkodu=sto_kod where BT.bar_kodu IS NOT NULL";
+        //void loadData()
+        //{
+        //    string query = "SELECT sto_kod,sto_isim,bar_kodu from STOKLAR LEFT OUTER JOIN BARKOD_TANIMLARI BT ON BT.bar_stokkodu=sto_kod where BT.bar_kodu IS NOT NULL";
 
 
-            try
-            {
+        //    try
+        //    {
 
-                bgl.baglan();
-                SqlCommand command = new SqlCommand(query, bgl.baglan());
+        //        bgl.baglan();
+        //        SqlCommand command = new SqlCommand(query, bgl.baglan());
 
-                DataTable dataTable = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dataTable);
+        //        DataTable dataTable = new DataTable();
+        //        SqlDataAdapter adapter = new SqlDataAdapter(command);
+        //        adapter.Fill(dataTable);
 
-                gridControl1.DataSource = dataTable;
-                bgl.bglkapat();
+        //        gridControl1.DataSource = dataTable;
+        //        bgl.bglkapat();
 
 
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show("Hata: " + ex.Message);
-            }
-        }
+        //        MessageBox.Show("Hata: " + ex.Message);
+        //    }
+        //}
 
         private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -90,7 +92,8 @@ namespace MikroBarkod
 
         private void FrmStokList_Load(object sender, EventArgs e)
         {
-            loadData();
+            //loadData();
+            stokRepository.GetStoklarWBarkod();
         }
     }
 }

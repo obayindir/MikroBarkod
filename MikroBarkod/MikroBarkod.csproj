@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -78,57 +81,114 @@
     <Compile Include="code39\Code39Barcode.Designer.cs">
       <DependentUpon>Code39Barcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="Entities\FasonGrid.cs" />
+    <Compile Include="Entities\Repositories\CariRepository.cs" />
+    <Compile Include="Entities\Repositories\DepoRepository.cs" />
+    <Compile Include="Entities\Repositories\HareketGrupRepository.cs" />
+    <Compile Include="Entities\Repositories\KullanicilarRepository.cs" />
+    <Compile Include="Entities\Repositories\PrimRepository.cs" />
+    <Compile Include="Entities\Repositories\SiparislerRepository.cs" />
+    <Compile Include="Entities\Repositories\StokHareketleriRepository.cs" />
+    <Compile Include="Entities\Repositories\StokRepository.cs" />
+    <Compile Include="Entities\Tables\CARI_HESAPLAR.cs" />
+    <Compile Include="Entities\Tables\DEPOLAR.cs" />
+    <Compile Include="Entities\Tables\HAREKET_GRUBU_1.cs" />
+    <Compile Include="Forms\AnaMenu\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="Forms\AnaMenu\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Forms\AnaMenu\FrmYeniKullanici.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <Compile Include="Forms\AnaMenu\FrmYeniKullanici.Designer.cs">
+      <DependentUpon>FrmYeniKullanici.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReport.cs">
+    <Compile Include="Forms\Prim\FrmPrimAnaEkran.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReport.Designer.cs">
+    <Compile Include="Forms\Prim\FrmPrimAnaEkran.Designer.cs">
+      <DependentUpon>FrmPrimAnaEkran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SIPARISLER.cs" />
+    <Compile Include="Entities\Tables\STOKLAR.cs" />
+    <Compile Include="Entities\Tables\STOK_HAREKETLERI.cs" />
+    <Compile Include="Forms\AnaMenu\FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnaMenu\FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonaCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonaCikis.Designer.cs">
+      <DependentUpon>FrmFasonaCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasondanGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasondanGiris.Designer.cs">
+      <DependentUpon>FrmFasondanGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.Designer.cs">
+      <DependentUpon>FrmFasonHareketFoyu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\SecimEkranlari\FrmCariSecim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\SecimEkranlari\FrmCariSecim.Designer.cs">
+      <DependentUpon>FrmCariSecim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\SecimEkranlari\FrmStokSecim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FasonUretim\SecimEkranlari\FrmStokSecim.Designer.cs">
+      <DependentUpon>FrmStokSecim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SiparisUretim\FrmSiparisUretim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SiparisUretim\FrmSiparisUretim.Designer.cs">
+      <DependentUpon>FrmSiparisUretim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SiparisUretim\FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SiparisUretim\FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStokList.cs">
+    <Compile Include="Forms\SiparisUretim\FrmStokList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStokList.Designer.cs">
+    <Compile Include="Forms\SiparisUretim\FrmStokList.Designer.cs">
       <DependentUpon>FrmStokList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTarihSecim.cs">
+    <Compile Include="Forms\SiparisUretim\FrmTarihSecim.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTarihSecim.Designer.cs">
+    <Compile Include="Forms\SiparisUretim\FrmTarihSecim.Designer.cs">
       <DependentUpon>FrmTarihSecim.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmYeniEtiket.cs">
+    <Compile Include="Forms\SiparisUretim\FrmYeniEtiket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmYeniEtiket.Designer.cs">
+    <Compile Include="Forms\SiparisUretim\FrmYeniEtiket.Designer.cs">
       <DependentUpon>FrmYeniEtiket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmYeniKullanici.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmYeniKullanici.Designer.cs">
-      <DependentUpon>FrmYeniKullanici.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RprBarkodDizayn.cs">
+    <Compile Include="Forms\SiparisUretim\RprBarkodDizayn.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RprBarkodDizayn.Designer.cs">
+    <Compile Include="Forms\SiparisUretim\RprBarkodDizayn.Designer.cs">
       <DependentUpon>RprBarkodDizayn.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlBaglanti.cs" />
+    <Compile Include="Services\DosyaOku.cs" />
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,26 +198,47 @@
     <EmbeddedResource Include="code39\Code39Barcode.resx">
       <DependentUpon>Code39Barcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="Forms\AnaMenu\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AnaMenu\FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReport.resx">
+    <EmbeddedResource Include="Forms\AnaMenu\FrmYeniKullanici.resx">
+      <DependentUpon>FrmYeniKullanici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasonaCikis.resx">
+      <DependentUpon>FrmFasonaCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasondanGiris.resx">
+      <DependentUpon>FrmFasondanGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.resx">
+      <DependentUpon>FrmFasonHareketFoyu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FasonUretim\SecimEkranlari\FrmCariSecim.resx">
+      <DependentUpon>FrmCariSecim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FasonUretim\SecimEkranlari\FrmStokSecim.resx">
+      <DependentUpon>FrmStokSecim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prim\FrmPrimAnaEkran.resx">
+      <DependentUpon>FrmPrimAnaEkran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SiparisUretim\FrmSiparisUretim.resx">
+      <DependentUpon>FrmSiparisUretim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SiparisUretim\FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStokList.resx">
+    <EmbeddedResource Include="Forms\SiparisUretim\FrmStokList.resx">
       <DependentUpon>FrmStokList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTarihSecim.resx">
+    <EmbeddedResource Include="Forms\SiparisUretim\FrmTarihSecim.resx">
       <DependentUpon>FrmTarihSecim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmYeniEtiket.resx">
+    <EmbeddedResource Include="Forms\SiparisUretim\FrmYeniEtiket.resx">
       <DependentUpon>FrmYeniEtiket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmYeniKullanici.resx">
-      <DependentUpon>FrmYeniKullanici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -169,12 +250,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RprBarkodDizayn.resx">
+    <EmbeddedResource Include="Forms\SiparisUretim\RprBarkodDizayn.resx">
       <DependentUpon>RprBarkodDizayn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,6 +270,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\FasonUretim\Kartlar\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraSplashScreen;
 using DevExpress.XtraWaitForm;
-
+using MikroBarkod.Entities.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +18,10 @@ using System.Windows.Forms;
 
 namespace MikroBarkod
 {
-    public partial class FrmMain : DevExpress.XtraEditors.XtraForm
+    public partial class FrmSiparisUretim : DevExpress.XtraEditors.XtraForm
     {
-
-        public FrmMain()
+        SiparislerRepository siparislerRepository = new SiparislerRepository();
+        public FrmSiparisUretim()
         {
             InitializeComponent();
 
@@ -36,6 +36,8 @@ namespace MikroBarkod
         {
             comboboxDoldur();
             this.KeyPreview = true;
+
+            
 
         }
 
@@ -134,8 +136,13 @@ namespace MikroBarkod
         private void btnCalistir_Click(object sender, EventArgs e)
         {
             ShowWaitForm();
-            gridYukle();
-            gridYukleView2();
+            //gridYukle();
+            gridControl1.DataSource=siparislerRepository.GetSiparisler();
+            gridAyarlari();
+
+            //gridYukleView2();
+            gridControl2.DataSource = siparislerRepository.GetSiparislerView2();
+            
             CloseWaitForm();
 
         }
@@ -151,80 +158,78 @@ namespace MikroBarkod
             // SplashScreenManager ile WaitForm'u kapat
             SplashScreenManager.CloseForm(false);
         }
-        void gridYukle()
-        {
-            SqlBaglanti bgl = new SqlBaglanti();
 
-            string dizin = AppDomain.CurrentDomain.BaseDirectory;
+        #region eskiGridYuklemeSorgusu
+        //void gridYukle()
+        //{
+        //    SqlBaglanti bgl = new SqlBaglanti();
 
-            string dosyaYolu = Path.Combine(dizin, "command.txt");
+        //    string dizin = AppDomain.CurrentDomain.BaseDirectory;
 
-            string sqlSorgusu = File.ReadAllText(dosyaYolu);
+        //    string dosyaYolu = Path.Combine(dizin, "command.txt");
 
-
-            using (SqlCommand comand = new SqlCommand(sqlSorgusu, bgl.baglan()))
-            {
-                comand.Parameters.AddWithValue("@param1", comboBoxYears.Text);
-                // SqlDataAdapter ve DataTable oluşturun
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(comand);
-                DataTable dataTable = new DataTable();
-
-                // DataTable'ı doldurun
-                dataAdapter.Fill(dataTable);
-
-                // DataTable'ı eğer UI thread'inden ulaşılmak üzere iş parçacığına post et
-                Invoke(new MethodInvoker(delegate
-                {
-                    gridControl1.DataSource = dataTable;
-                }));
-            }
-            gridAyarlari();
+        //    string sqlSorgusu = File.ReadAllText(dosyaYolu);
 
 
-        }
+        //    using (SqlCommand comand = new SqlCommand(sqlSorgusu, bgl.baglan()))
+        //    {
+        //        comand.Parameters.AddWithValue("@param1", comboBoxYears.Text);
+        //        // SqlDataAdapter ve DataTable oluşturun
+        //        SqlDataAdapter dataAdapter = new SqlDataAdapter(comand);
+        //        DataTable dataTable = new DataTable();
 
-        void gridYukleView2()
-        {
-            SqlBaglanti bgl = new SqlBaglanti();
+        //        // DataTable'ı doldurun
+        //        dataAdapter.Fill(dataTable);
 
-            string dizin = AppDomain.CurrentDomain.BaseDirectory;
-
-            string dosyaYolu = Path.Combine(dizin, "commandView2.txt");
-
-            string sqlSorgusu = File.ReadAllText(dosyaYolu);
-
-
-            using (SqlCommand comand = new SqlCommand(sqlSorgusu, bgl.baglan()))
-            {
-                comand.Parameters.AddWithValue("@param1", comboBoxYears.Text);
-                // SqlDataAdapter ve DataTable oluşturun
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(comand);
-                DataTable dataTable = new DataTable();
-
-                // DataTable'ı doldurun
-                dataAdapter.Fill(dataTable);
-
-                // DataTable'ı eğer UI thread'inden ulaşılmak üzere iş parçacığına post et
-                Invoke(new MethodInvoker(delegate
-                {
-                    gridControl2.DataSource = dataTable;
-                }));
-            }
-            gridAyarlariview2();
+        //        // DataTable'ı eğer UI thread'inden ulaşılmak üzere iş parçacığına post et
+        //        Invoke(new MethodInvoker(delegate
+        //        {
+        //            gridControl1.DataSource = dataTable;
+        //        }));
+        //    }
+        //    gridAyarlari();
 
 
-        }
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
+        //} 
+        #endregion
 
-        }
+        #region EskiGridYukle2Sorgusu
+        //void gridYukleView2()
+        //{
+        //    SqlBaglanti bgl = new SqlBaglanti();
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
+        //    string dizin = AppDomain.CurrentDomain.BaseDirectory;
 
-        }
+        //    string dosyaYolu = Path.Combine(dizin, "commandView2.txt");
+
+        //    string sqlSorgusu = File.ReadAllText(dosyaYolu);
 
 
+        //    using (SqlCommand comand = new SqlCommand(sqlSorgusu, bgl.baglan()))
+        //    {
+        //        comand.Parameters.AddWithValue("@param1", comboBoxYears.Text);
+        //        // SqlDataAdapter ve DataTable oluşturun
+        //        SqlDataAdapter dataAdapter = new SqlDataAdapter(comand);
+        //        DataTable dataTable = new DataTable();
+
+        //        // DataTable'ı doldurun
+        //        dataAdapter.Fill(dataTable);
+
+        //        // DataTable'ı eğer UI thread'inden ulaşılmak üzere iş parçacığına post et
+        //        Invoke(new MethodInvoker(delegate
+        //        {
+        //            gridControl2.DataSource = dataTable;
+        //        }));
+        //    }
+        //    gridAyarlariview2();
+
+
+        //} 
+        #endregion
+       
+        
+
+      
 
         private void seciliSatiriYazdirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -303,7 +308,7 @@ namespace MikroBarkod
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void gridView1_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -346,12 +351,6 @@ namespace MikroBarkod
             }
         }
 
-        private void yeniEtiketToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmYeniEtiket frmYeniEtiket = new FrmYeniEtiket();
-            frmYeniEtiket.ShowDialog();
-
-        }
 
         private void gridView2_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {

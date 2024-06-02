@@ -1,6 +1,6 @@
 ﻿namespace MikroBarkod
 {
-    partial class FrmMain
+    partial class FrmSiparisUretim
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSiparisUretim));
             this.btnCalistir = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -39,9 +39,6 @@
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxYears = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.yeniEtiketToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -50,7 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -61,10 +57,11 @@
             // btnCalistir
             // 
             this.btnCalistir.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCalistir.ImageOptions.SvgImage")));
-            this.btnCalistir.Location = new System.Drawing.Point(333, 40);
+            this.btnCalistir.Location = new System.Drawing.Point(219, 16);
+            this.btnCalistir.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalistir.Name = "btnCalistir";
             this.btnCalistir.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnCalistir.Size = new System.Drawing.Size(62, 53);
+            this.btnCalistir.Size = new System.Drawing.Size(41, 36);
             this.btnCalistir.TabIndex = 1;
             this.btnCalistir.Click += new System.EventHandler(this.btnCalistir_Click);
             // 
@@ -72,10 +69,12 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 3);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1584, 800);
+            this.gridControl1.Size = new System.Drawing.Size(1094, 588);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -87,27 +86,31 @@
             this.seciliSatiriYazdirToolStripMenuItem,
             this.yeniEtiketToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 48);
             // 
             // seciliSatiriYazdirToolStripMenuItem
             // 
             this.seciliSatiriYazdirToolStripMenuItem.Name = "seciliSatiriYazdirToolStripMenuItem";
-            this.seciliSatiriYazdirToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.seciliSatiriYazdirToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.seciliSatiriYazdirToolStripMenuItem.Text = "Secili Satiri Yazdir";
             this.seciliSatiriYazdirToolStripMenuItem.Click += new System.EventHandler(this.seciliSatiriYazdirToolStripMenuItem_Click);
             // 
             // yeniEtiketToolStripMenuItem
             // 
             this.yeniEtiketToolStripMenuItem.Name = "yeniEtiketToolStripMenuItem";
-            this.yeniEtiketToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.yeniEtiketToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.yeniEtiketToolStripMenuItem.Text = "Yeni Etiket";
             this.yeniEtiketToolStripMenuItem.Click += new System.EventHandler(this.yeniEtiketToolStripMenuItem_Click);
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridView1.Appearance.Preview.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Preview.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridView1.Appearance.ViewCaption.Options.UseTextOptions = true;
             this.gridView1.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridView1.DetailHeight = 349;
+            this.gridView1.DetailHeight = 239;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -122,56 +125,35 @@
             // btnYazdir
             // 
             this.btnYazdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYazdir.Location = new System.Drawing.Point(1483, 39);
+            this.btnYazdir.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnYazdir.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnYazdir.ImageOptions.SvgImage")));
+            this.btnYazdir.Location = new System.Drawing.Point(1024, 11);
+            this.btnYazdir.Margin = new System.Windows.Forms.Padding(2);
             this.btnYazdir.Name = "btnYazdir";
-            this.btnYazdir.Size = new System.Drawing.Size(126, 43);
+            this.btnYazdir.Size = new System.Drawing.Size(84, 59);
             this.btnYazdir.TabIndex = 3;
-            this.btnYazdir.Text = "YAZDIR";
+            this.btnYazdir.Text = "ETİKET YAZDIR";
             this.btnYazdir.Click += new System.EventHandler(this.btnYazdir_Click);
             // 
             // comboBoxYears
             // 
             this.comboBoxYears.FormattingEnabled = true;
-            this.comboBoxYears.Location = new System.Drawing.Point(150, 55);
+            this.comboBoxYears.Location = new System.Drawing.Point(97, 27);
+            this.comboBoxYears.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxYears.Name = "comboBoxYears";
-            this.comboBoxYears.Size = new System.Drawing.Size(161, 27);
+            this.comboBoxYears.Size = new System.Drawing.Size(109, 21);
             this.comboBoxYears.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(21, 56);
+            this.label1.Location = new System.Drawing.Point(11, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 22);
+            this.label1.Size = new System.Drawing.Size(75, 14);
             this.label1.TabIndex = 5;
             this.label1.Text = "Sipariş Yılı :";
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Teal;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yeniEtiketToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1622, 33);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // yeniEtiketToolStripMenuItem1
-            // 
-            this.yeniEtiketToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.yeniEtiketToolStripMenuItem1.Name = "yeniEtiketToolStripMenuItem1";
-            this.yeniEtiketToolStripMenuItem1.Size = new System.Drawing.Size(125, 29);
-            this.yeniEtiketToolStripMenuItem1.Text = "Yeni Etiket";
-            this.yeniEtiketToolStripMenuItem1.Click += new System.EventHandler(this.yeniEtiketToolStripMenuItem1_Click);
             // 
             // tabControl1
             // 
@@ -180,19 +162,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 99);
+            this.tabControl1.Location = new System.Drawing.Point(8, 68);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1598, 838);
+            this.tabControl1.Size = new System.Drawing.Size(1106, 618);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gridControl1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1590, 806);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1098, 592);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CRM SİPARİŞLERİ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -200,10 +184,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.gridControl2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1590, 806);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(1098, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ÜRETİM DEPO DURUMU";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -211,16 +196,19 @@
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 3);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1584, 800);
+            this.gridControl2.Size = new System.Drawing.Size(1094, 588);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
+            this.gridView2.DetailHeight = 239;
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -230,21 +218,21 @@
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView2_RowCellStyle);
             // 
-            // FrmMain
+            // FrmSiparisUretim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1622, 949);
+            this.ClientSize = new System.Drawing.Size(1122, 694);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxYears);
             this.Controls.Add(this.btnYazdir);
             this.Controls.Add(this.btnCalistir);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmMain.IconOptions.Image")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FrmMain";
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmSiparisUretim.IconOptions.Image")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FrmSiparisUretim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sipariş Üretim";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -252,8 +240,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -273,10 +259,7 @@
         private DevExpress.XtraEditors.SimpleButton btnYazdir;
         private System.Windows.Forms.ComboBox comboBoxYears;
         private System.Windows.Forms.Label label1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem yeniEtiketToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem yeniEtiketToolStripMenuItem1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
