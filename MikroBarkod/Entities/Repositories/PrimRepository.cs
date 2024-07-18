@@ -24,29 +24,27 @@ namespace MikroBarkod.Entities.Repositories
 
             using (IDbConnection dbConnection = new SqlConnection(connectionString))
             {
-                string query = $"Select * from fn_IsemriStokHareketFoyu( N'genel',N'genel','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}',0)";
-                string sqlQuery = $"exec dbo.Bayindir_Kur_Farki_Hesapla '{plasiyerKodu}','{plasiyerKodu}','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}'";
+                //string query = $"Select * from fn_IsemriStokHareketFoyu( N'genel',N'genel','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}',0)";
+                string query = $"exec dbo.Bayindir_Kur_Farki_Hesapla '{plasiyerKodu}','{plasiyerKodu}','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}'";
                 return dbConnection.Query(query).ToList();
             }
         }
-        public async Task<List<dynamic>> GetPrimReportAsync(string plasiyerKodu, DateTime ilkTarih, DateTime sonTarih)
+        public async Task<List<object>> GetPrimReportAsync(string plasiyerKodu, DateTime ilkTarih, DateTime sonTarih)
         {
             using (IDbConnection dbConnection = new SqlConnection(connectionString))
             {
-                string query = $"Select * from fn_IsemriStokHareketFoyu( N'genel',N'genel','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}',0)";
-                string sqlQuery = $"exec dbo.Bayindir_Kur_Farki_Hesapla '{plasiyerKodu}','{plasiyerKodu}','{ilkTarih.ToString("yyyyMMdd")}','{sonTarih.ToString("yyyyMMdd")}'";
+                string query = $"exec dbo.Bayindir_Kur_Farki_Hesapla @plasiyerKodu1, @plasiyerKodu2, @ilkTarih, @sonTarih";
 
-                var results = new List<dynamic>();
+                var parameters = new
+                {
+                    plasiyerKodu1 = plasiyerKodu,
+                    plasiyerKodu2 = plasiyerKodu,
+                    ilkTarih = ilkTarih.ToString("yyyyMMdd"),
+                    sonTarih = sonTarih.ToString("yyyyMMdd")
+                };
 
-                var queryTask = dbConnection.QueryAsync(query);
-                var sqlQueryTask = dbConnection.QueryAsync(sqlQuery);
-
-                await Task.WhenAll(queryTask, sqlQueryTask);
-
-                results.AddRange(await queryTask);
-                results.AddRange(await sqlQueryTask);
-
-                return results;
+                var result = await dbConnection.QueryAsync<object>(query, parameters);
+                return result.ToList();
             }
         }
 

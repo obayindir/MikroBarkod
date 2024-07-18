@@ -137,9 +137,10 @@ namespace MikroBarkod
         {
             ShowWaitForm();
             //gridYukle();
+            gridView1.OptionsView.ColumnAutoWidth = false;
             gridControl1.DataSource=siparislerRepository.GetSiparisler();
             gridAyarlari();
-
+            
             //gridYukleView2();
             gridControl2.DataSource = siparislerRepository.GetSiparislerView2();
             

@@ -35,14 +35,7 @@ namespace MikroBarkod.Forms.Evraklar
 
             dateEvrakTarihi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
 
-            //gridde ki depo no larını doldur
-            repoLookUpDepolar.DisplayMember = "dep_adi";
-            repoLookUpDepolar.ValueMember = "dep_no";
-            repoLookUpDepolar.DataSource = depoRepository.GetDepo();
-            //gridde ki hareket grup kodlarını doldur
-            repoLookUpHareketGrupKodu1.DisplayMember = "hg1_isim";
-            repoLookUpHareketGrupKodu1.ValueMember = "hg1_kod";
-            repoLookUpHareketGrupKodu1.DataSource = hareketGrupRepository.GetHareketGruplari();
+           
             //SİRA NO ALANI
             btnSira.Text = SonEvrakSiraNoBul(txtSeri.Text).ToString();
         }
@@ -208,6 +201,15 @@ namespace MikroBarkod.Forms.Evraklar
             this.KeyPreview = true;
             this.KeyDown += btnKaydet_KeyDown;
             this.KeyDown += btnSatirSil_KeyDown;
+
+            //gridde ki depo no larını doldur
+            repoLookUpDepolar.DisplayMember = "dep_adi";
+            repoLookUpDepolar.ValueMember = "dep_no";
+            repoLookUpDepolar.DataSource = depoRepository.GetDepo();
+            //gridde ki hareket grup kodlarını doldur
+            repoLookUpHareketGrupKodu1.DisplayMember = "hg1_isim";
+            repoLookUpHareketGrupKodu1.ValueMember = "hg1_kod";
+            repoLookUpHareketGrupKodu1.DataSource = hareketGrupRepository.GetHareketGruplari();
         }
 
         private void btnKaydet_KeyDown(object sender, KeyEventArgs e)

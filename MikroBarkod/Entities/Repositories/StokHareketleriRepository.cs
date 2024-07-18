@@ -140,6 +140,6 @@ namespace MikroBarkod.Entities.Repositories
             }
 
         }
-
+       
     }
 }

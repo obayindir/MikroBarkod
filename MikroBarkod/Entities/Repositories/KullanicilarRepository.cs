@@ -24,7 +24,7 @@ namespace MikroBarkod.Entities.Repositories
         {
             using (IDbConnection dbConnection = new SqlConnection(connectionString))
             {
-                string query = "USE MikroDB_V16 SELECT User_name,User_LongName FROM KULLANICILAR";
+                string query = "USE MikroDB_V16 SELECT User_name,User_LongName FROM KULLANICILAR order by User_name asc";
                 return dbConnection.Query(query).ToList();
             }
 

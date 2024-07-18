@@ -19,6 +19,7 @@ using DevExpress.XtraPrinting;
 using System.IO;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MikroBarkod.Forms.Prim
 {
@@ -28,11 +29,11 @@ namespace MikroBarkod.Forms.Prim
         public FrmPrimAnaEkran()
         {
             InitializeComponent();
-            
+
             lookupPlasiyer.Properties.DataSource = primRepository.GetCariPersoneller();
             lookupPlasiyer.Properties.DisplayMember = "cari_per_adi";
             lookupPlasiyer.Properties.ValueMember = "cari_per_kod";
-            
+
         }
         void loadGrids()
         {
@@ -52,11 +53,135 @@ namespace MikroBarkod.Forms.Prim
 
         }
 
+        private async void LoadDataAsync()
+        {
+            
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            try
+            {
+                progressBar1.Value = 25;
+                string plasiyerKodu = lookupPlasiyer.EditValue.ToString();
+                DateTime datetimeIlkTarih = dateIlkTarih.DateTime;
+                DateTime datetimeSonTarih = dateSonTarih.DateTime;
+
+                var data = await primRepository.GetPrimReportAsync(plasiyerKodu, datetimeIlkTarih, datetimeSonTarih);
+                gridControl1.DataSource = data;
+                progressBar1.Value = 50;
+
+                gridView1.Columns["Temsilci_Kodu"].Caption = "Plasiyer";
+                gridView1.Columns["Temsilci_Adi"].Visible = true;
+                //gridView1.Columns["Proje_Prim_Orani"].Visible = false;
+                gridView1.Columns["Plasiyer_Kodu"].Visible = false;
+                gridView1.Columns["Temsilci_Kodu"].Visible = false;
+                gridView1.Columns["Toplam_Satis_Kumule"].Visible = false;
+                gridView1.Columns["Kumule_Prim"].Visible = false;
+                gridView1.Columns["sth_special2"].Visible = false;
+                //gridView1.Columns["Cari_Kod"].Visible = false;
+                gridView1.Columns["cha_Guid"].Visible = false;
+                //gridView1.Columns["Stok_Prim_Orani"].Visible = false;
+
+                gridView1.Columns["sth_Guid"].Visible = false;
+
+                GridColumn faturaMeblagColumn = gridView1.Columns["Fatura_Meblag"];
+                faturaMeblagColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                faturaMeblagColumn.DisplayFormat.FormatString = "N2";
+
+                GridColumn kapananTutarColumn = gridView1.Columns["Kapanan_Tutar"];
+                kapananTutarColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                kapananTutarColumn.DisplayFormat.FormatString = "N2";
+
+                GridColumn kapananYuzde = gridView1.Columns["Kapanan_Yuzde"];
+                kapananYuzde.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                kapananYuzde.DisplayFormat.FormatString = "N";
+
+                GridColumn fullPrimColumn = gridView1.Columns["Full_Prim"];
+                fullPrimColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                fullPrimColumn.DisplayFormat.FormatString = "N2";
+
+
+                GridColumn kazanilanPrimColumn = gridView1.Columns["Kazanilan_Prim"];
+                kazanilanPrimColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                kazanilanPrimColumn.DisplayFormat.FormatString = "N2";
+
+                GridColumn kumulePrimColumn = gridView1.Columns["Kumule_Prim"];
+                kumulePrimColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                kumulePrimColumn.DisplayFormat.FormatString = "N2";
+
+                GridColumn Toplam_Satis_KumuleColumn = gridView1.Columns["Toplam_Satis_Kumule"];
+                Toplam_Satis_KumuleColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                Toplam_Satis_KumuleColumn.DisplayFormat.FormatString = "N2";
+
+                GridColumn Tutar_TLColumn = gridView1.Columns["Tutar_TL"];
+                Tutar_TLColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                Tutar_TLColumn.DisplayFormat.FormatString = "N2";
+
+
+                GridColumn dateColumn = gridView1.Columns["Fatura_Tarihi"]; // Tarih sütununun adını buraya yazın
+                                                                            //GridColumn chaGuid = gridView1.Columns["cha_Guid"];//cha guid alanı
+
+                dateColumn.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateMonth;
+                dateColumn.DisplayFormat.FormatString = "yyyy-MM"; // Grup başlıklarında tarih formatını ay ve yıl olarak ayarlar
+                dateColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+
+                gridView1.BeginSort();
+
+                try
+                {
+                    dateColumn.GroupIndex = 0; // Gruplama sırasını 0 olarak ayarlar
+                                               //chaGuid.GroupIndex = 1;
+
+                    dateColumn.SortOrder = DevExpress.Data.ColumnSortOrder.Descending; // Grupları tersten sırala
+                                                                                       //gridView1.OptionsView.ShowGroupPanel = false;
+                    gridView1.OptionsView.ShowGroupPanel = true;
+                    gridView1.BestFitColumns();
+                }
+                finally
+                {
+                    gridView1.EndSort();
+                }
+
+               
+                gridView1.OptionsView.ShowAutoFilterRow = true;
+
+
+                gridView1.OptionsView.ColumnAutoWidth = false;
+                gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+                gridView1.GroupSummary.Clear();
+                GridGroupSummaryItem summaryItemValue = new GridGroupSummaryItem();
+                GridGroupSummaryItem summaryItemValue2 = new GridGroupSummaryItem();
+
+
+
+
+                summaryItemValue.FieldName = "Tutar_TL";
+                summaryItemValue2.FieldName = "Kazanilan_Prim";
+
+                summaryItemValue.ShowInGroupColumnFooter = gridView1.Columns["Tutar_TL"];
+                summaryItemValue2.ShowInGroupColumnFooter = gridView1.Columns["Kazanilan_Prim"];
+                summaryItemValue.SummaryType = SummaryItemType.Sum;
+                summaryItemValue2.SummaryType = SummaryItemType.Sum;
+                summaryItemValue.DisplayFormat = "{0:N2}";
+                summaryItemValue2.DisplayFormat = "{0:N2}";
+                gridView1.GroupSummary.Add(summaryItemValue);
+                gridView1.GroupSummary.Add(summaryItemValue2);
+                progressBar1.Value = 100;
+                progressBar1.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Veri yükleme sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+
+        }
+
         void grid1Doldur()
         {
             try
             {
-                gridControl1.DataSource = primRepository.GetPrimReportAsync(lookupPlasiyer.EditValue.ToString(), dateIlkTarih.DateTime, dateSonTarih.DateTime);
+                gridControl1.DataSource = primRepository.GetPrimReport(lookupPlasiyer.EditValue.ToString(), dateIlkTarih.DateTime, dateSonTarih.DateTime);
 
                 gridView1.Columns["Temsilci_Kodu"].Caption = "Plasiyer";
                 gridView1.Columns["Temsilci_Adi"].Visible = true;
@@ -176,7 +301,7 @@ namespace MikroBarkod.Forms.Prim
                 if (gridView1.IsGroupRow(rowHandle))
                     continue;
                 Guid sthGuid = (Guid)gridView1.GetRowCellValue(rowHandle, "sth_Guid");
-                await primRepository.UpdateSthSpecial2Async(sthGuid,0);
+                await primRepository.UpdateSthSpecial2Async(sthGuid, 0);
             }
             loadGrids();
         }
@@ -194,7 +319,7 @@ namespace MikroBarkod.Forms.Prim
                 if (gridView1.IsGroupRow(rowHandle))
                     continue;
                 Guid sthGuid = (Guid)gridView1.GetRowCellValue(rowHandle, "sth_Guid");
-                await primRepository.UpdateSthSpecial2Async(sthGuid,1);
+                await primRepository.UpdateSthSpecial2Async(sthGuid, 1);
 
 
             }
@@ -259,6 +384,8 @@ namespace MikroBarkod.Forms.Prim
             {
                 gridView1.RestoreLayoutFromXml("layout.xml");
             }
+            dateIlkTarih.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            dateSonTarih.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
         }
 
         private void btnGoruntuAyarlariniKaydet_Click(object sender, EventArgs e)
@@ -334,10 +461,12 @@ namespace MikroBarkod.Forms.Prim
                 }
             }
         }
+        
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            loadGrids();
+            //loadGrids();
+            LoadDataAsync();
         }
     }
 }

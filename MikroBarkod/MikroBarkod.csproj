@@ -99,6 +99,12 @@
     <Compile Include="Forms\AnaMenu\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AnaMenu\FrmLogin2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnaMenu\FrmLogin2.Designer.cs">
+      <DependentUpon>FrmLogin2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AnaMenu\FrmYeniKullanici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,11 +138,11 @@
     <Compile Include="Forms\FasonUretim\Evraklar\FrmFasondanGiris.Designer.cs">
       <DependentUpon>FrmFasondanGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.cs">
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.Designer.cs">
-      <DependentUpon>FrmFasonHareketFoyu.cs</DependentUpon>
+    <Compile Include="Forms\FasonUretim\Evraklar\FrmFasonHareket.Designer.cs">
+      <DependentUpon>FrmFasonHareket.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FasonUretim\SecimEkranlari\FrmCariSecim.cs">
       <SubType>Form</SubType>
@@ -201,6 +207,9 @@
     <EmbeddedResource Include="Forms\AnaMenu\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AnaMenu\FrmLogin2.resx">
+      <DependentUpon>FrmLogin2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AnaMenu\FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,8 +222,8 @@
     <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasondanGiris.resx">
       <DependentUpon>FrmFasondanGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasonHareketFoyu.resx">
-      <DependentUpon>FrmFasonHareketFoyu.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FasonUretim\Evraklar\FrmFasonHareket.resx">
+      <DependentUpon>FrmFasonHareket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FasonUretim\SecimEkranlari\FrmCariSecim.resx">
       <DependentUpon>FrmCariSecim.cs</DependentUpon>

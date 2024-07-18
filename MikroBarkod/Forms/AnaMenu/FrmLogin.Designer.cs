@@ -49,9 +49,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(111, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(74, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(284, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(189, 139);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -59,37 +60,41 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(39, 330);
+            this.panel1.Location = new System.Drawing.Point(26, 226);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 1);
+            this.panel1.Size = new System.Drawing.Size(283, 1);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.panel2.Location = new System.Drawing.Point(39, 426);
+            this.panel2.Location = new System.Drawing.Point(26, 291);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 1);
+            this.panel2.Size = new System.Drawing.Size(283, 1);
             this.panel2.TabIndex = 2;
             // 
             // simpleButton1
             // 
             this.simpleButton1.AllowFocus = false;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(39, 265);
+            this.simpleButton1.Location = new System.Drawing.Point(26, 181);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton1.Size = new System.Drawing.Size(59, 59);
+            this.simpleButton1.Size = new System.Drawing.Size(39, 40);
             this.simpleButton1.TabIndex = 43;
             this.simpleButton1.TabStop = false;
             // 
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(39, 367);
+            this.simpleButton2.Location = new System.Drawing.Point(26, 251);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton2.Size = new System.Drawing.Size(56, 53);
+            this.simpleButton2.Size = new System.Drawing.Size(37, 36);
             this.simpleButton2.TabIndex = 44;
             this.simpleButton2.TabStop = false;
             // 
@@ -101,9 +106,10 @@
             this.btnGirisYap.Appearance.Options.UseBackColor = true;
             this.btnGirisYap.Appearance.Options.UseFont = true;
             this.btnGirisYap.Appearance.Options.UseForeColor = true;
-            this.btnGirisYap.Location = new System.Drawing.Point(39, 512);
+            this.btnGirisYap.Location = new System.Drawing.Point(26, 350);
+            this.btnGirisYap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGirisYap.Name = "btnGirisYap";
-            this.btnGirisYap.Size = new System.Drawing.Size(425, 58);
+            this.btnGirisYap.Size = new System.Drawing.Size(283, 40);
             this.btnGirisYap.TabIndex = 3;
             this.btnGirisYap.Text = "GİRİŞ YAP";
             this.btnGirisYap.Click += new System.EventHandler(this.btnGirisYap_Click);
@@ -111,17 +117,19 @@
             // simpleButton4
             // 
             this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(441, 12);
+            this.simpleButton4.Location = new System.Drawing.Point(294, 8);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton4.Size = new System.Drawing.Size(57, 55);
+            this.simpleButton4.Size = new System.Drawing.Size(38, 38);
             this.simpleButton4.TabIndex = 6;
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // lookUpKullanicilar
             // 
             this.lookUpKullanicilar.EnterMoveNextControl = true;
-            this.lookUpKullanicilar.Location = new System.Drawing.Point(104, 267);
+            this.lookUpKullanicilar.Location = new System.Drawing.Point(69, 183);
+            this.lookUpKullanicilar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lookUpKullanicilar.Name = "lookUpKullanicilar";
             this.lookUpKullanicilar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lookUpKullanicilar.Properties.Appearance.Options.UseFont = true;
@@ -129,32 +137,33 @@
             this.lookUpKullanicilar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpKullanicilar.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("User_name", ""),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("User_LongName", "")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("User_name", "", 13, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("User_LongName", "", 13, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpKullanicilar.Properties.NullText = "";
-            this.lookUpKullanicilar.Properties.PopupWidth = 400;
-            this.lookUpKullanicilar.Size = new System.Drawing.Size(360, 44);
+            this.lookUpKullanicilar.Properties.PopupWidth = 267;
+            this.lookUpKullanicilar.Size = new System.Drawing.Size(240, 30);
             this.lookUpKullanicilar.TabIndex = 1;
             // 
             // txtSifre
             // 
             this.txtSifre.EnterMoveNextControl = true;
-            this.txtSifre.Location = new System.Drawing.Point(104, 374);
+            this.txtSifre.Location = new System.Drawing.Point(69, 256);
+            this.txtSifre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtSifre.Properties.Appearance.Options.UseFont = true;
             this.txtSifre.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtSifre.Properties.UseSystemPasswordChar = true;
-            this.txtSifre.Size = new System.Drawing.Size(360, 44);
+            this.txtSifre.Size = new System.Drawing.Size(240, 30);
             this.txtSifre.TabIndex = 2;
             // 
             // FrmLogin
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 691);
+            this.ClientSize = new System.Drawing.Size(337, 459);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.lookUpKullanicilar);
             this.Controls.Add(this.simpleButton4);
@@ -167,6 +176,7 @@
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.ShowIcon = false;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";

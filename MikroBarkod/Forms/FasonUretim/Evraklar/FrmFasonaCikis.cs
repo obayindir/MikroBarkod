@@ -366,7 +366,7 @@ namespace MikroBarkod.Forms.Evraklar
                     _sth.sth_belge_tarih = dateHedefSure.DateTime;
                     _sth.sth_Olcu1 = Convert.ToDouble(spnToplamTalep.EditValue);
                     _sth.sth_cari_kodu = btnFasoncuKodu.Text;
-                    _sth.sth_isemri_gider_kodu = "genel";
+                    _sth.sth_isemri_gider_kodu = "genel";  
 
                     _sth.sth_teslim_tarihi = dateTeslimTarihi.DateTime;
                     _sth.sth_stok_kod = gridView1.GetRowCellValue(i, sth_stok_kod).ToString();

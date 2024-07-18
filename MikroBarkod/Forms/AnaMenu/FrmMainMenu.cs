@@ -51,7 +51,8 @@ namespace MikroBarkod
 
         private void barBtnFasonHareketFoyu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FrmFasonHareketFoyu frmFasonHareketFoyu = new FrmFasonHareketFoyu();
+            FrmFasonHareket frmFasonHareketFoyu = new FrmFasonHareket();
+            //FrmFasonHareket2 frmFasonHareketFoyu = new FrmFasonHareket2();
             frmFasonHareketFoyu.MdiParent = this;
             frmFasonHareketFoyu.Show();
         }
